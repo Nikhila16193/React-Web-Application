@@ -18,7 +18,18 @@ import HeaderNav from './JS/Pages/Header'
 
 
 class App extends Component {
-  // state = {
+  render() {
+    return (
+      <div className="App">
+        <HeaderNav />        
+      </div>
+    );
+  }
+}
+export default App;
+
+
+ // state = {
   //   data: null
   // };
 
@@ -50,14 +61,3 @@ class App extends Component {
   //   }
   //   return body;
   // };
-  render() {
-    return (
-      <div className="App">
-        <HeaderNav /> 
-       
-      </div>
-    );
-  }
-}
-
-export default App;
