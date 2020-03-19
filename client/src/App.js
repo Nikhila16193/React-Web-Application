@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+// import arcgis from  '@arcgis/webpack-plugin';
 
 
 import './App.css';

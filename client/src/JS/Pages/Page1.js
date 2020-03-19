@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Draggable from 'react-draggable';
 
+import { LoginTemplate } from ".././Components/Login";
 
 const Page1 =  (
     class Dragon extends React.Component {
@@ -27,6 +28,7 @@ const Page1 =  (
                             <div>This readme is really dragging on...</div>
                         </div>
                     </Draggable>
+                    <LoginTemplate/>
                 </div>
             );
         }

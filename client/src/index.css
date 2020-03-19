@@ -52,4 +52,9 @@ body {
   .container{
     background-color:  pink ;
   }
+
+  .webmap {
+    height: 400px;
+  }
   
+  @import "~arcgis-js-api/themes/light/main.scss";

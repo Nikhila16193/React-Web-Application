@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@arcgis/webpack-plugin": "^4.14.1",
     "express": "^4.17.1",
-    "pg":"12.2"
+    "pg": "12.2"
   }
 }
