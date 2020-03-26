@@ -7,6 +7,7 @@ import ReadMoreReact from 'read-more-react';
 
 
 import { WebMapView } from ".././Components/WebMap";
+import { MyFeatureLayer } from ".././Components/FeatureLayer";
 
 
 const Page2 = (
@@ -20,7 +21,12 @@ const Page2 = (
                 //         max={5}
                 //         readMoreText="click here to read more" />
                 // </div>
-                <WebMapView />  
+                    <WebMapView />
+                    // <MyFeatureLayer
+                    //     featureLayerProperties={{
+                    //         url:  'https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Time_Zones/FeatureServer/0'
+                    //     }}
+                    // >
             );
         }
     }
