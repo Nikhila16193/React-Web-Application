@@ -4,7 +4,17 @@ import ReactDOM from 'react-dom';
 import "../.././CSS/scss/bootstrap.scss";
 import '../../index.css';
 
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link,
+  Redirect
+} from "react-router-dom";
 
+import { ScoreInputList } from ".././Components/MyLandScoreForm";
+
+//.././Components/MyLandScoreForm
 import HeaderNav from './Header'
 
 
@@ -51,6 +61,7 @@ const Page4 = (
     render() {
       return (
         <div>
+          <div>
           <button
             className="btn btn-default"
             style={buttonStyle}>
@@ -59,6 +70,8 @@ const Page4 = (
           {/* <h1> {this.state.EmployeeName} </h1> */}
           <h1> {this.state.data}  </h1>
         </div>
+         <ScoreInputList/>
+         </div>
       );
     }
   }
