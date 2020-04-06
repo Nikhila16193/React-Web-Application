@@ -21,12 +21,14 @@ const Page2 = (
                 //         max={5}
                 //         readMoreText="click here to read more" />
                 // </div>
-                    <WebMapView />
-                    // <MyFeatureLayer
-                    //     featureLayerProperties={{
-                    //         url:  'https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Time_Zones/FeatureServer/0'
-                    //     }}
-                    // >
+                <WebMapView />
+                /* //<Maplatitude/> */
+
+                // <MyFeatureLayer
+                //     featureLayerProperties={{
+                //         url:  'https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Time_Zones/FeatureServer/0'
+                //     }}
+                // >
             );
         }
     }

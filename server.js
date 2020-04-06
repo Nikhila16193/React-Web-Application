@@ -13,7 +13,14 @@ const cors = require("cors");
 
 const pg = require('pg');
 
-
+// const config = {
+//     host: 'localhost',
+//     user: 'postgres',
+//     password: 'Hareesh',
+//     database: 'landintelligencedb',
+//     port: 6060
+//     //ssl: true
+// };
 
 const config = {
     host: 'landintelligencetestdb.postgres.database.azure.com',
@@ -67,7 +74,7 @@ app.use(cors(corsOptions));
 // });
 
 app.get('/postgres_employee', function (req, res, next) {
-    client.query('SELECT * FROM tbl_land_score_form where landscorce_id = $1', [7], function (err, result) {
+    client.query('SELECT * FROM tbl_land_score_form where landscorce_id = $1', [1], function (err, result) {
         if (err) {
             console.log(err);
             res.status(400).send(err);
@@ -117,14 +124,14 @@ app.post('/LandScore', (req, res) => {
 app.post('/landscores', function (req, res) {
     var propertyaddress = req.query.address;
     var sizeoftract = req.query.score0;
-    var shapeoftract =  req.query.score1;
-    var floodimpact =  req.query.score2;
-    var  zoining =  req.query.score3
+    var shapeoftract = req.query.score1;
+    var floodimpact = req.query.score2;
+    var zoining = req.query.score3
     // console.log(req.params);
     // console.log(req.rows);
     // console.log(req.body);
     // console.log(req.query.address);
-    client.query("CALL SP_Insert_My_Land_Scores (  $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11 , $12 , $13, $14, $15, $16, $17, $18 , $19 , $20 , $21 , $22, $23) ", [1, propertyaddress, sizeoftract, shapeoftract, floodimpact, zoining, 4, 3, 5, 5, 4, 5, 3, 3, 3, 3, 3, 1, 0, 5, 5, 1, 1], function (err, result) {
+    client.query("CALL SP_Insert_My_Land_Scores ( $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11 , $12 , $13, $14, $15, $16, $17, $18 , $19 , $20 , $21 , $22, $23) ", [1, propertyaddress, sizeoftract, shapeoftract, floodimpact, zoining, 4, 3, 5, 5, 4, 5, 3, 3, 3, 3, 3, 1, 0, 5, 5, 1, 1], function (err, result) {
         if (err) {
             console.log(err);
             res.status(400).send(err);
@@ -133,13 +140,23 @@ app.post('/landscores', function (req, res) {
     });
 });
 
-app.listen(5000, function () {
-    console.log('Server is running.. on Port 5000');
+
+app.get('/getalllandscores', function (req, res) {
+    //  console.log("I am inside the Getalllandscores method");
+    client.query('SELECT * FROM Tbl_Land_score_Form ', function (err, result) {
+        if (err) {
+            console.log(err);
+            res.status(400).send(err);
+        }
+        res.status(200).send({ express: result });
+        console.log(req.params);
+    });
 });
 
 
-
-
+app.listen(5000, function () {
+    console.log('Server is running.. on Port 5000');
+});
 
 
 // // console.log that your server is up and running

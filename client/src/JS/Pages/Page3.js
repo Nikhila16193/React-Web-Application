@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import "../.././CSS/scss/bootstrap.scss";
 import '../../index.css';
 
+import { ScoreInputList } from ".././Components/LandScoreDetailView";
+
 class Square extends React.Component {
     render() {
       return (
@@ -89,6 +91,7 @@ const Page3 =  (
             return (
                 <div>
                    <Game/>
+                   <ScoreInputList/>
                 </div>
             );
         }
