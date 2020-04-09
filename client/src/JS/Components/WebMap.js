@@ -67,7 +67,8 @@ export const WebMapView = (props) => {
           });
 
           view.ui.add(coordsWidget, "bottom-right");
-
+          
+          //Methos to create graphic layer
           function createGraphic(latitude, longitude) {
             var graphicsLayer = new GraphicsLayer();
             custommap.add(graphicsLayer);
@@ -89,7 +90,7 @@ export const WebMapView = (props) => {
               }
             ]);
           }
-
+          //Adding custom layer with Logo when user double clicks on a map location
           view.on("double-click", function (event) {
             custommap.remove(graphicsLayer);
             createGraphic(event.mapPoint.latitude, event.mapPoint.longitude);
