@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import '../../CSS/myLandScoreForm.css'
 
 //trouble getting search 'widget' to load
 
@@ -11,14 +12,24 @@ export const ScoreInputList = (
 
             this.state = {
                 address: '',
-                score0: '',
-                score1: '',
-                score2: '',
-                score3: '',
+                shapeoftract: '',
+                sizeoftract: '',
+                floodimpact: '',
+                zoining: '',
+                accesstotract: '',
+                topography: '',
+                wateravailability: '',
+                seweravailability: '',
+                proximitytomajorhighways: '',
+                transportationplan: '',
+                utilitytransmissionlines: '',
+                schooldistrict: '',
+                proximitytoelemiddleschool: '',
+                proximitytohighschool: '',
+                sellermotivation: '',
+                capitalimprovementbudget: '',
             };
-            // this.setState({
-            //     address : this.props.address,
-            // });
+
         }
 
         handleInputChange = e => {
@@ -31,38 +42,66 @@ export const ScoreInputList = (
         handleSubmit = e => {
             e.preventDefault();
 
-            // this.setState({
-            //     [e.target.name]: e.target.value,
-            // });
 
-            var { address, score0, score1, score2, score3 } = this.state;
+            var { address, shapeoftract,
+                sizeoftract,
+                floodimpact,
+                zoining,
+                accesstotract,
+                topography,
+                wateravailability,
+                seweravailability,
+                proximitytomajorhighways,
+                transportationplan,
+                utilitytransmissionlines,
+                schooldistrict,
+                proximitytoelemiddleschool,
+                proximitytohighschool,
+                sellermotivation,
+                capitalimprovementbudget, } = this.state;
 
             address = this.props.address;
-            // const score0 = this.state.score0;
-            // const score1 = this.state.score1;
-            // const score2 = this.state.score2;
-            // const score3 = this.state.score3;
-
-
-            // const { bookID, bookTitle, bookAuthor } = this.state;
 
             const LandScoreForm = {
-                address : this.props.address,
-                score0,
-                score1,
-                score2,
-                score3
+                address: this.props.address,
+                shapeoftract,
+                sizeoftract,
+                floodimpact,
+                zoining,
+                accesstotract,
+                topography,
+                wateravailability,
+                seweravailability,
+                proximitytomajorhighways,
+                transportationplan,
+                utilitytransmissionlines,
+                schooldistrict,
+                proximitytoelemiddleschool,
+                proximitytohighschool,
+                sellermotivation,
+                capitalimprovementbudget,
             };
             debugger;
             axios
-                 .post('http://localhost:5000/landscores', LandScoreForm , {
-                //.post('http://localhost:5000/landscores', {
+                .post('http://localhost:5000/landscores', LandScoreForm, {
                     params: {
                         address,
-                        score0,
-                        score1,
-                        score2,
-                        score3
+                        shapeoftract,
+                        sizeoftract,
+                        floodimpact,
+                        zoining,
+                        accesstotract,
+                        topography,
+                        wateravailability,
+                        seweravailability,
+                        proximitytomajorhighways,
+                        transportationplan,
+                        utilitytransmissionlines,
+                        schooldistrict,
+                        proximitytoelemiddleschool,
+                        proximitytohighschool,
+                        sellermotivation,
+                        capitalimprovementbudget,
                     }
                 })
                 .then(() => console.log('Land Score Entered'))
@@ -74,6 +113,7 @@ export const ScoreInputList = (
         render() {
             return (
                 <div>
+
                     <form onSubmit={this.handleSubmit} >
                         <ul>
                             <label htmlFor="name">Your Name </label>
@@ -87,8 +127,8 @@ export const ScoreInputList = (
                             <br />
                             <br />
 
-                            <label htmlFor="score0">Size of Tract</label>
-                            <select id="score0" name="score0" onChange={this.handleInputChange}>
+                            <label htmlFor="shapeoftract" className="scoreLabel">Shape of Tract</label>
+                            <select id="shapeoftract" name="shapeoftract" className="scoreSelect" onChange={this.handleInputChange}>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -99,8 +139,8 @@ export const ScoreInputList = (
                             <br />
                             <br />
 
-                            <label htmlFor="score1">Shape of Tract</label>
-                            <select id="score1" name="score1" onChange={this.handleInputChange}>
+                            <label htmlFor="sizeoftract" className="scoreLabel">Size of Tract</label>
+                            <select id="sizeoftract" name="sizeoftract" className="scoreSelect" onChange={this.handleInputChange}>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -111,8 +151,8 @@ export const ScoreInputList = (
                             <br />
                             <br />
 
-                            <label htmlFor="score2">Flood Impact</label>
-                            <select id="score2" name="score2" onChange={this.handleInputChange}>
+                            <label htmlFor="floodimpact" className="scoreLabel">Flood Impact</label>
+                            <select id="floodimpact" name="floodimpact" className="scoreSelect" onChange={this.handleInputChange}>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -123,8 +163,8 @@ export const ScoreInputList = (
                             <br />
                             <br />
 
-                            <label htmlFor="score3">Zoning and Land Use Restrictions</label>
-                            <select id="score3" name="score3" onChange={this.handleInputChange}>
+                            <label htmlFor="zoining" className="scoreLabel">Zoning and Land Use Restrictions</label>
+                            <select id="zoining" name="zoining" className="scoreSelect" onChange={this.handleInputChange}>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -135,7 +175,162 @@ export const ScoreInputList = (
                             <br />
                             <br />
 
-                            <input type="submit" />
+                            <label htmlFor="accesstotract" className="scoreLabel">Access To Tract</label>
+                            <select id="accesstotract" name="accesstotract" className="scoreSelect" onChange={this.handleInputChange}>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <br />
+                            <br />
+
+                            <label htmlFor="topography" className="scoreLabel">Topography</label>
+                            <select id="topography" name="topography" className="scoreSelect" onChange={this.handleInputChange}>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <br />
+                            <br />
+
+
+                            <label htmlFor="wateravailability" className="scoreLabel">Water Availability</label>
+                            <select id="wateravailability" name="wateravailability" className="scoreSelect" onChange={this.handleInputChange}>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <br />
+                            <br />
+
+
+                            <label htmlFor="seweravailability" className="scoreLabel">Sewer Availability</label>
+                            <select id="seweravailability" name="seweravailability" className="scoreSelect" onChange={this.handleInputChange}>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <br />
+                            <br />
+
+
+                            <label htmlFor="proximitytomajorhighways" className="scoreLabel">Proximity to Major Highways</label>
+                            <select id="proximitytomajorhighways" name="proximitytomajorhighways" className="scoreSelect" onChange={this.handleInputChange}>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <br />
+                            <br />
+
+                          
+                            <label htmlFor="transportationplan" className="scoreLabel">Transportation Plan</label>
+                            <select id="transportationplan" name="transportationplan" className="scoreSelect" onChange={this.handleInputChange}>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <br />
+                            <br />
+
+                            <label htmlFor="utilitytransmissionlines" className="scoreLabel">Utility Transmission Lines</label>
+                            <select id="utilitytransmissionlines" name="utilitytransmissionlines" className="scoreSelect" onChange={this.handleInputChange}>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <br />
+                            <br />
+
+
+                            <label htmlFor="schooldistrict" className="scoreLabel">School District</label>
+                            <select id="schooldistrict" name="schooldistrict" className="scoreSelect" onChange={this.handleInputChange} >
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <br />
+                            <br />
+
+
+                            <label htmlFor="proximitytoelemiddleschool" className="scoreLabel"> Proximity to Elementary or Middle School</label>
+                            <select id="proximitytoelemiddleschool" name="proximitytoelemiddleschool" className="scoreSelect" onChange={this.handleInputChange}>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <br />
+                            <br />
+
+                            <label htmlFor="proximitytohighschool" className="scoreLabel">Proximity to High School</label>
+                            <select id="proximitytohighschool" name="proximitytohighschool" className="scoreSelect" onChange={this.handleInputChange}>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <br />
+                            <br />
+
+
+                            <label htmlFor="sellermotivation" className="scoreLabel"> Seller Motivation </label>
+                            <select id="sellermotivation" name="sellermotivation" className="scoreSelect" onChange={this.handleInputChange}>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <br />
+                            <br />
+
+
+                            <label htmlFor="capitalimprovementbudget" className="scoreLabel">Capital Improvement Budget</label>
+                            <select id="capitalimprovementbudget" name="capitalimprovementbudget" className="scoreSelect" onChange={this.handleInputChange}>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <br />
+                            <br />
+
+
+
+
+                            <input type="submit" className="scoreInput" />
 
                         </ul>
                     </form>

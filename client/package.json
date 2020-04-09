@@ -12,6 +12,7 @@
     "express": "^4.17.1",
     "node-sass": "^4.13.1",
     "react": "^16.13.0",
+    "react-bootstrap": "^1.0.0",
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0",
     "read-more-react": "^1.0.10"

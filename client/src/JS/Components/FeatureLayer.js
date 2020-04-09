@@ -1,6 +1,8 @@
 import  { useState, useEffect } from 'react';
 import { loadModules } from 'esri-loader';
 
+// This code sample can be used in future to be able to add feature layers dynamically to a Esri map
+
 
 // const MyFeatureLayer = () => (props) => {
 //     const [myFeatureLayer, setMyFeatureLayer] = useState(null);

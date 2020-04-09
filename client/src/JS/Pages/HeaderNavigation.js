@@ -1,3 +1,5 @@
+//This can be used as a use case for React Navigation
+
 import React from 'react';
 // import ReactDOM from 'react-dom';
 // import Draggable from 'react-draggable';

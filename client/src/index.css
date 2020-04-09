@@ -1,60 +1,77 @@
-body {
-    font: 14px "Century Gothic", Futura, sans-serif;
-    margin: 20px;
-  }
-  
-  ol, ul {
-    padding-left: 30px;
-  }
-  
-  .board-row:after {
-    clear: both;
-    content: "";
-    display: table;
-  }
-  
-  .status {
-    margin-bottom: 10px;
-  }
-  
-  .square {
-    background: #fff;
-    border: 1px solid #999;
-    float: left;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 34px;
-    height: 34px;
-    margin-right: -1px;
-    margin-top: -1px;
-    padding: 0;
-    text-align: center;
-    width: 34px;
-  }
-  
-  .square:focus {
-    outline: none;
-  }
-  
-  .kbd-navigation .square:focus {
-    background: #ddd;
-  }
-  
-  .game {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .game-info {
-    margin-left: 20px;
-  }
+/* @import "~arcgis-js-api/themes/light/main.scss"; */
 
-  .container{
-    background-color:  pink ;
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
   }
 
   .webmap {
     height: 400px;
   }
+
+  .subHeaderDiv {
+    background-color: #6D8850 ;
+  }
+
+  .subHeaderText {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .topText {
+
+    color: white  ; 
+    font-family: 'Open Sans', sans-serif;
+
+  }
+
+  .topTextDiv {
+    background-color: #BB5C4C;
+    margin-top: 8px;
+  }
+
+  .scoreInputListDiv {
+    margin-top: 8px;
+    border-style: solid;
+    border-color: #BB5C4C;
+    border-top-style: none;
+    margin-bottom: 48px; 
+  }
+
+  .scoreLabel {
+    margin-right: 8px; 
+    font-family: 'Open Sans', sans-serif;
+    color: #303441;
+  }
+
+  .scoreSelect {
+    font-family: 'Open Sans', sans-serif;
+    color: #303441;
+  }
+
+  .scoreInput {
+    font-family: 'Open Sans', sans-serif;
+    color: #303441;
+    margin-bottom: 16px;
+  }
+
+  .sectionSubheaderDiv {
+    background-color: #BB5C4C;
+    margin-top: 8px; 
+  }
+
+  .sectionSubheaderText {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+  }
   
-  @import "~arcgis-js-api/themes/light/main.scss";
+  

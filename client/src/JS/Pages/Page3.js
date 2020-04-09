@@ -1,3 +1,5 @@
+//This is just being used for code pratice 
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -102,18 +104,5 @@ export default Page3;
 
 
 
-//import HeaderNav from './Header'
-// import './JS/bootstrap.min.js'
-//import Page1 from './JS/Pages/Page1'
-// import Draggable from 'react-draggable';
-// import { BrowserRouter } from 'react-router-dom';
-// import {
-//   BrowserRouter as Router,
-//   Route,
-//   Switch,
-//   Link,
-//   Redirect
-// } from "react-router-dom";
 
-//import "./CSS/scss/bootstrap.scss";
 

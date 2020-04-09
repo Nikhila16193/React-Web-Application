@@ -1,53 +1,24 @@
 const express = require('express');
 const cors = require("cors");
-// const { Client } = require('pg');
-//const connectionString = 'postgres://postgres:Hareesh@localhost:6060/test';
-//const connectionString = 'postgres://sharedAdmin@landintelligencetestdb:Lintel3!@landintelligencetestdb.postgres.database.azure.com:5432/postgres?ssl = true';
-// const pool = new pool({
-//         host: '',
-//         user: '',
-//         port : 5432,
-//         idleTimeoutMillis: 30000,
-//         connectionTimeoutMillis: 2000,
-// })
 
 const pg = require('pg');
-
-// const config = {
-//     host: 'localhost',
-//     user: 'postgres',
-//     password: 'Hareesh',
-//     database: 'landintelligencedb',
-//     port: 6060
-//     //ssl: true
-// };
 
 const config = {
     host: 'landintelligencetestdb.postgres.database.azure.com',
     user: 'sharedAdmin@landintelligencetestdb',
     password: 'Lintel3!',
-    //database: 'postgres',
     database: 'landintelligencedb',
     port: 5432,
     ssl: true
 };
 
 const client = new pg.Client(config);
-
-// client.connect(err => {
-//     if (err) throw err;
-//     else { queryDatabase(); }
-// });
-// const client = new Client({
-//     connectionString: connectionString
-// });
 client.connect();
 
 
 
 var app = express();
-//const app = express();
-//const port = process.env.PORT || 5000;
+
 app.set('port', process.env.PORT || 5000);
 const whitelist = ["http://localhost:3000"];
 const corsOptions = {
@@ -63,16 +34,13 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 
-// app.get('/postgres_employee', function (req, res, next) {
-//     client.query('SELECT * FROM Inventory where id = $1', [1], function (err, result) {
-//         if (err) {
-//             console.log(err);
-//             res.status(400).send(err);
-//         }
-//         res.status(200).send({ express: result.rows[0].name });
-//     });
-// });
+// Basic test for server connection
+app.get('/express_backend', (req, res) => {
+    res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
+});
 
+
+//Basic Get values test
 app.get('/postgres_employee', function (req, res, next) {
     client.query('SELECT * FROM tbl_land_score_form where landscorce_id = $1', [1], function (err, result) {
         if (err) {
@@ -83,12 +51,7 @@ app.get('/postgres_employee', function (req, res, next) {
     });
 });
 
-
-// create a GET route
-app.get('/express_backend', (req, res) => {
-    res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
-});
-
+//Test for Login
 app.get('/login', (req, res) => {
     client.query('SELECT * FROM users where email = $1', ['nikhila@Landintelligence.net'], function (err, result) {
         if (err) {
@@ -99,8 +62,8 @@ app.get('/login', (req, res) => {
     });
 });
 
-//exec LoginMember @SSN='" + ssn + "', @PASSWORD='" + password + "';
 
+//Basic Insert Test
 app.post('/InsertTest', (req, res) => {
     client.query("CALL SP_Insert_Test( $1, $2) ", [1, 'Test Property Inserted through Node.js'], function (err, result) {
         if (err) {
@@ -111,6 +74,8 @@ app.post('/InsertTest', (req, res) => {
     });
 });
 
+
+//Basic SP based data insertion 
 app.post('/LandScore', (req, res) => {
     client.query("CALL SP_Insert_My_Land_Scores ( $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11 , $12 , $13, $14, $15, $16, $17, $18 , $19 , $20 , $21 , $22, $23) ", [1, "'Test Property Inserted through Node.js'", 1, 1, 5, 5, 4, 3, 5, 5, 4, 5, 3, 3, 3, 3, 3, 1, 0, 5, 5, 1, 1], function (err, result) {
         if (err) {
@@ -121,17 +86,31 @@ app.post('/LandScore', (req, res) => {
     });
 });
 
+
+//Actual myLandscoreform insertion
 app.post('/landscores', function (req, res) {
+    //This code block has to be optimized
     var propertyaddress = req.query.address;
-    var sizeoftract = req.query.score0;
-    var shapeoftract = req.query.score1;
-    var floodimpact = req.query.score2;
-    var zoining = req.query.score3
-    // console.log(req.params);
-    // console.log(req.rows);
-    // console.log(req.body);
-    // console.log(req.query.address);
-    client.query("CALL SP_Insert_My_Land_Scores ( $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11 , $12 , $13, $14, $15, $16, $17, $18 , $19 , $20 , $21 , $22, $23) ", [1, propertyaddress, sizeoftract, shapeoftract, floodimpact, zoining, 4, 3, 5, 5, 4, 5, 3, 3, 3, 3, 3, 1, 0, 5, 5, 1, 1], function (err, result) {
+    var shapeoftract = req.query.shapeoftract;
+    var sizeoftract = req.query.sizeoftract;
+    var floodimpact = req.query.floodimpact;
+    var zoining = req.query.zoining;
+    var accesstotract = req.query.accesstotract;
+    var topography = req.query.topography
+    var wateravailability = req.query.wateravailability
+    var seweravailability = req.query.seweravailability
+    var proximitytomajorhighways = req.query.proximitytomajorhighways;
+    var transportationplan = req.query.transportationplan;
+    var utilitytransmissionlines = req.query.utilitytransmissionlines;
+    var schooldistrict = req.query.schooldistrict;
+    var proximitytoelemiddleschool = req.query.proximitytoelemiddleschool;
+    var proximitytohighschool = req.query.proximitytohighschool;
+    var sellermotivation = req.query.sellermotivation;
+    var capitalimprovementbudget = req.query.capitalimprovementbudget;
+    //Passing property parcel id as 1 for now. 
+    //These four fields are currently not being pulled from Form : listed , rezoning_or_overlay_possible 
+    //At some point of time we need to figure out to calculate total_scorce, percentage , grade from the react front end.
+    client.query("CALL SP_Insert_My_Land_Scores ( $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11 , $12 , $13, $14, $15, $16, $17, $18 , $19 , $20 , $21 , $22, $23) ", [1, propertyaddress, shapeoftract, sizeoftract, floodimpact, zoining, accesstotract, topography, wateravailability, seweravailability, proximitytomajorhighways, transportationplan, utilitytransmissionlines, schooldistrict, proximitytoelemiddleschool, proximitytohighschool, sellermotivation, capitalimprovementbudget, 5, 5, 5, 5, null], function (err, result) {
         if (err) {
             console.log(err);
             res.status(400).send(err);
@@ -141,8 +120,8 @@ app.post('/landscores', function (req, res) {
 });
 
 
+//Test for getting all values in Tbl_Land_score_Form
 app.get('/getalllandscores', function (req, res) {
-    //  console.log("I am inside the Getalllandscores method");
     client.query('SELECT * FROM Tbl_Land_score_Form ', function (err, result) {
         if (err) {
             console.log(err);
@@ -159,22 +138,3 @@ app.listen(5000, function () {
 });
 
 
-// // console.log that your server is up and running
-// app.listen(port, () => console.log(`Listening on port ${port}`));
-//Comments
-// const express = require('express');
-// var app = express();
-// app.set('port', process.env.PORT || 4000);
-
-// app.get('/', function (req, res, next) {
-//     client.query('SELECT * FROM Employee where id = $1', [1], function (err, result) {
-//         if (err) {
-//             console.log(err);
-//             res.status(400).send(err);
-//         }
-//         res.status(200).send(result.rows);
-//     });
-// });
-// app.listen(4000, function () {
-//     console.log('Server is running.. on Port 4000');
-// })

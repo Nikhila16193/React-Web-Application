@@ -1,21 +1,21 @@
+//This is just being used for code pratice 
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 import "../.././CSS/scss/bootstrap.scss";
 import '../../index.css';
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link,
-  Redirect
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Route,
+//   Switch,
+//   Link,
+//   Redirect
+// } from "react-router-dom";
 
 import { ScoreInputList } from ".././Components/MyLandScoreForm";
 
-//.././Components/MyLandScoreForm
-import HeaderNav from './Header'
 
 
 var buttonStyle = {
@@ -23,17 +23,6 @@ var buttonStyle = {
   background: "pink"
 };
 
-// var Button = React.createClass({
-//     render: function () {
-//         return (
-//             <button
-//                 className="btn btn-default"
-//                 style={buttonStyle}
-//                 onClick={this.props.handleClick}>{this.props.label}
-//             </button>
-//         );
-//     }
-// });
 
 
 
@@ -62,16 +51,14 @@ const Page4 = (
       return (
         <div>
           <div>
-          <button
-            className="btn btn-default"
-            style={buttonStyle}>
-            {/* // onClick={this.handleClickButton}>                         */}
-          </button>
-          {/* <h1> {this.state.EmployeeName} </h1> */}
-          <h1> {this.state.data}  </h1>
+            <button
+              className="btn btn-default"
+              style={buttonStyle}>
+            </button>
+            <h1> {this.state.data}  </h1>
+          </div>
+          <ScoreInputList />
         </div>
-         <ScoreInputList/>
-         </div>
       );
     }
   }
@@ -123,3 +110,15 @@ export default Page4;
         // }
           // const response = await fetch('/express_backend');
       // const body = await response.json();
+
+      // var Button = React.createClass({
+//     render: function () {
+//         return (
+//             <button
+//                 className="btn btn-default"
+//                 style={buttonStyle}
+//                 onClick={this.props.handleClick}>{this.props.label}
+//             </button>
+//         );
+//     }
+// });

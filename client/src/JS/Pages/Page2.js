@@ -1,3 +1,5 @@
+//This is just being used for code pratice 
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReadMoreReact from 'read-more-react';

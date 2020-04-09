@@ -1,0 +1,54 @@
+.topText {
+
+    color: white  ; 
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.topTextDiv {
+    background-color: #BB5C4C;
+    margin-top: 8px;
+}
+.scoreInputListDiv {
+    margin-top: 8px;
+    border-style: solid;
+    border-color: #BB5C4C;
+    border-top-style: none;
+    margin-bottom: 48px; 
+}
+
+.scoreLabel {
+    margin-right: 8px; 
+    font-family: 'Open Sans', sans-serif;
+    color: #303441;
+}
+
+.scoreSelect {
+    font-family: 'Open Sans', sans-serif;
+    color: #303441;
+}
+
+.scoreInput {
+    font-family: 'Open Sans', sans-serif;
+    color: #303441;
+    margin-bottom: 16px;
+}
+
+.sectionSubheaderDiv {
+    background-color: #BB5C4C;
+    margin-top: 8px; 
+}
+
+.sectionSubheaderText {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.sectionHeaderDiv {
+    background-color: #BB5C4C  ;
+}
+
+.sectionHeaderText {
+   color: white;
+   font-family: 'Open Sans', sans-serif;
+}

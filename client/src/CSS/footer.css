@@ -1,0 +1,14 @@
+.footerDiv {
+
+    background-color: #303441 ;
+
+}
+
+.footerText {
+   color: white;
+   font-family: 'Open Sans', sans-serif;   
+}
+
+.horizSpacer {
+    height: 16px;
+}

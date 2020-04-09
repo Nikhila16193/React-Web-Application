@@ -1,28 +1,20 @@
 import React, { Component } from 'react';
-
-// import arcgis from  '@arcgis/webpack-plugin';
-
-
 import './App.css';
-import HeaderNav from './JS/Pages/Header'
 
-
-// import logo from './logo.svg';
-// const express = require('express');
-// const { Client } = require('pg');
-// const connectionString = 'postgres://postgres:Hareesh@localhost:6060/test';
-// const client = new Client({
-//     connectionString: connectionString
-// });
-// client.connect();
-
+import { Header } from '../src/JS/Components/Header'
+import { Footer } from '../src/JS/Components/Footer.js'
+import HeaderNav from './JS/Pages/HeaderNavigation';
+import LandScore from './JS/Pages/LandScore'
 
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <HeaderNav />        
+        {/* <HeaderNav />         */}
+        <Header/>
+        <LandScore />
+        <Footer/>
       </div>
     );
   }
@@ -30,35 +22,3 @@ class App extends Component {
 export default App;
 
 
- // state = {
-  //   data: null
-  // };
-
-  // componentDidMount() {
-  //   // Call our fetch function below once the component mounts
-  //   this.callBackendAPI()
-  //     .then(res => this.setState({ data: res.express }))
-  //     .catch(err => console.log(err));
-  // }
-  // // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
-  // callBackendAPI = async () => {
-  //   const response = await fetch('/postgres_employee');
-  //   const body = await response.json();
-
-  //   // const response = await fetch('/express_backend');
-  //   // const body = await response.json();
-
-  //   if (response.status !== 200) {
-  //     throw Error(body.json)
-  //   }
-  //   return body;
-  // };
-  // callBackendAPI = async () => {
-  //   const response = await fetch('/express_backend');
-  //   const body = await response.json();
-
-  //   if (response.status !== 200) {
-  //     throw Error(body.json)
-  //   }
-  //   return body;
-  // };
